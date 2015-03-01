@@ -1,5 +1,33 @@
 p#notice = notice
 
+dl
+  dt.field account: 
+  dd.value = @user.account
+
+  dt.field name : 
+  dd.value = @user.name
+
+  dt.field email : 
+  dd.value = @user.email
+
+  dt.field permit_level : 
+  dd.value = @user.permit_level
+
+  dt.field group_id : 
+  dd.value = @user.group_id
+
+  dt.field deleted : 
+  dd.value = @user.deleted
+
+  dt.field suspended : 
+  dd.value = @user.suspended
+
+  dt.field created_at : 
+  dd.value = @user.created_at
+
+  dt.field updated_at : 
+  dd.value = @user.updated_at
+
 
 = link_to 'Edit', edit_user_path(@user)
 '|

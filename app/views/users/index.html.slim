@@ -1,16 +1,23 @@
 h1 Listing users
 
-table
+table.listing
   thead
     tr
-      th
-      th
-      th
-
+      th account
+      th name
+      th email
+      th permit_level
+      th group_id
+      th edit
+      th delete
   tbody
     - @users.each do |user|
       tr
-        td = link_to 'Show', user
+        td = link_to user.account, user
+        td = user.name
+        td = user.email
+        td = user.permit_level
+        td = user.group_id
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
 

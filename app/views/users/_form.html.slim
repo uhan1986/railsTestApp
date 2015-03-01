@@ -5,5 +5,24 @@
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-
+  .field
+    = f.label :account
+    br
+    =f.text_field :account
+  .field
+    = f.label :name
+    br
+    =f.text_field :name
+  .field
+    = f.label :email
+    br
+    =f.text_field :email
+  .field
+    = f.label :permit_level
+    br
+    =f.text_field :permit_level
+  .field
+    = f.label :group_id
+    br
+    =f.text_field :group_id
   .actions = f.submit
