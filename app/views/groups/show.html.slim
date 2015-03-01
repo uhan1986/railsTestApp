@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Group account:
+  = @group.group_account
+p
+  strong Group name:
+  = @group.group_name
+p
+  strong Hashed password:
+  = @group.hashed_password
+p
+  strong Description:
+  = @group.description
+p
+  strong Deleted:
+  = @group.deleted
+p
+  strong Suspended:
+  = @group.suspended
+p
+  strong Created at:
+  = @group.created_at
+p
+  strong Updated at:
+  = @group.updated_at
+
+= link_to 'Edit', edit_group_path(@group)
+'|
+= link_to 'Back', groups_path

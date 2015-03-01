@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :email, null: false                    # Eメール
       t.string  :hashed_password                       # パスワード
       t.integer :permit_level, null: false             # 権限レベル
-      t.integer :group_id, null: false	               # グループID
+      t.references :group, null: false                 # 外部キー グループ
       t.boolean :deleted, null: false, default: false  # 削除フラグ
       t.boolean :suspended, null:false, default: false # 停止フラグ
       t.timestamps null: false
@@ -14,7 +14,7 @@ class CreateUsers < ActiveRecord::Migration
 
   add_index :users, :account, unique: true
   add_index :users, :email, unique: true
-  add_index :users, :group_id  
-  #add_foreign_key グループID
+  add_index :users, :group_id
+  add_foreign_key :users, :groups
   end
 end

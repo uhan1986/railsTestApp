@@ -1,0 +1,32 @@
+html,body {
+	height:100%;
+	margin: 0px;
+	padding: 0px;
+}
+#screen {
+	height: 100%;
+	vertical-align: middle;
+}
+#left_menu {	
+    width: 300px;
+    word-wrap: break-word;
+    /*background-color: red;*/
+    float: left;
+}
+#right_menu {
+    word-wrap: break-word;
+    margin-left: 300px;
+    overflow : auto;
+	    /*background-color: blue;*/
+}
+.menu {
+	border: 2px solid;
+	height:100%;
+}
+div.clearblock {
+		clear: both;
+}
+table.table-result {
+	width: 80%;
+	height: inherit;
+}
