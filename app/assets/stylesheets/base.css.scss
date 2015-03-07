@@ -1,0 +1,51 @@
+@import 'colors';
+
+html,body {
+	height:100%;
+	margin: 0px;
+	padding: 0px;
+	color: $primaryTextColor;
+}
+.container-fluid, .row{
+	height: 100%;
+}
+.left_menu {	
+	background-color: $menuBackColor;
+}
+.main {
+	background-color: $mainBackColor;
+    overflow : scroll;
+}
+.menu {
+	border-width: 1px 0px 0px 1px;
+	border-style: solid;
+	border-color: $darkPrimaryColor;
+	height:100%;
+}
+div.clearblock {
+		clear: both;
+}
+table {
+	background-color: $tableColor;
+
+
+	tr.clickable {
+		cursor: pointer;
+	}
+}
+table.table-result {
+	width: 80%;
+	height: inherit;
+	thead {
+		background-color: $tableColor;
+	}
+}
+
+div {
+	.btn_group {
+
+		a.btn {
+			margin-right: 2px;
+		}
+	}
+}

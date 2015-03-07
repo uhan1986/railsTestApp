@@ -3,6 +3,18 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :events
+
+  namespace :group_admin do
+    root 'top#index'
+    get 'event/:id' => 'event#index',
+      constraints: { id: /\d*/ }, as: 'event'
+    get 'events' => 'event#events'
+    get 'event/:id/edit' => 'event#edit',
+      constraints: { id: /\d*/ }, as: 'event_edit'
+ #   get 'login' => 'aaa'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

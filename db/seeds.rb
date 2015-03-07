@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-table_names = %w(groups users)
+table_names = %w(groups users events)
 
 table_names.each do |t_name|
 	path = Rails.root.join('db', 'seeds', Rails.env, "#{t_name}.rb")

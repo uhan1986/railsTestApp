@@ -1,0 +1,2 @@
+module GroupAdmin::TopHelper
+end

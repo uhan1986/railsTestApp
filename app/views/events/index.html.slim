@@ -1,0 +1,27 @@
+h1 Listing events
+
+table class=["table", "table-hover", "table-striped", "table-result"]
+  thead
+    tr
+      th title
+      th start
+      th end
+      th limit
+      th closed
+
+  tbody
+    - @events.each do |event|
+      tr class="clickable"
+        td = event.title
+        td = event.start_date
+        td = event.end_date
+        td = event.absence_limit
+        - if event.absence_limit >= Time.now
+          td -
+        - else
+          td　Closed
+
+
+br
+
+= link_to 'New Event', new_event_path

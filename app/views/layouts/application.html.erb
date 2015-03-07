@@ -7,15 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="screen">
-	<div id="left_menu" class="menu">
-		<a href="/groups" >groups</a>
-		<a href="/users" >users</a>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2 menu left_menu">
+			<a href="/groups" >groups</a>
+			<a href="/users" >users</a>
+		</div>
+		<div class="col-md-10 menu main">
+			<%= yield %>
+		</div>
 	</div>
-	<div id="right_menu" class="menu">
-	<%= yield %>
-	</div>
-	<div class="clearblock"></div>
 </div>
 </body>
 </html>

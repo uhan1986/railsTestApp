@@ -1,0 +1,27 @@
+p#notice = notice
+  = p @event
+p
+  strong Title:
+  = @event.title
+p
+  strong Start date:
+  = @event.start_date
+p
+  strong End date:
+  = @event.end_date
+p
+  strong Absence:
+  = @event.absence_limit
+p
+  strong Location:
+  = @event.location
+p
+  strong Summary:
+  = @event.summary
+
+div class="btn_group"
+  = link_to 'Edit', group_admin_event_edit_path(@event), { class: "btn btn-primary" }
+  = link_to 'Back', group_admin_root_path, { class: "btn btn-danger" }
+
+
+
