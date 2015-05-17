@@ -42,10 +42,23 @@ table.table-result {
 }
 
 div {
-	.btn_group {
+	&.btn_group {
 
 		a.btn {
 			margin-right: 2px;
 		}
 	}
 }
+
+dl {
+	dt {
+
+	}
+	dd {
+		&.edit_field {
+			margin-left: 20px;
+		}
+	}
+}
+
+
