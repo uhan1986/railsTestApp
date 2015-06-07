@@ -7,11 +7,14 @@ gem 'rails', '4.2.0'
 gem 'pg'
 
 # Use less for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '>= 3.2'
 
 # Use twitter-bootstrap
 #gem 'twitter-bootstrap-rails'
-gem 'bootstrap-sass', ' ~> 2.3.1.0'
+gem 'bootstrap-sass', ' ~> 3.3.4'
+
+#use font-awesome
+gem 'font-awesome-sass'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -49,6 +52,9 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 
 gem 'rb-readline', '~> 0.4.2'
 
+# user autherization devise
+gem 'devise'
+
 #slim template engine
 gem 'slim'
 gem 'slim-rails'
@@ -71,4 +77,3 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
 end
-

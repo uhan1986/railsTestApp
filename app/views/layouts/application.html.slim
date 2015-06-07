@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title Wheeler
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    div class=["container-fluid"]
+      div class=["row"]
+        div class=["col-md-2", "menu", "left_menu"]
+          == render 'shared/side_menu'
+        div class=["col-md-10", "menu", "main"]
+          == yield
