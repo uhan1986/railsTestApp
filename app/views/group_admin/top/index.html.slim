@@ -13,7 +13,7 @@ div
 
     tbody
       - @recent_events.each do |event|
-        tr class=["clickable"] data-event-id=event.id
+        tr class=["clickable"] data-event-id=event.id data-href="group_admin/event/"
           td = event.title
           td = event.start_date
           td = event.end_date

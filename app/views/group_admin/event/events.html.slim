@@ -11,7 +11,7 @@ table class=["table", "table-hover", "table-striped", "table-result"]
 
   tbody
     - @events.each do |event|
-      tr class=["clickable"] data-event-id=event.id
+      tr class=["clickable"] data-event-id=event.id data-href="./event/"
         td = event.title
         td = event.start_date
         td = event.end_date

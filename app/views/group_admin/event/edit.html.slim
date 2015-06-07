@@ -2,7 +2,6 @@ h1 Editing event
 
 == render 'form'
 
-= link_to 'Show', @event
-'|
-= link_to 'Back', events_path
+div class="btn_group"
+	= link_to 'Back', group_admin_event_path(@event), { class: "btn btn-primary" }
 
