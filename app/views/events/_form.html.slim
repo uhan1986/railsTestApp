@@ -31,8 +31,29 @@
       .form-group
         .field
           = f.label :start_date
-          #datetimepicker class="input-group date" 
-            = f.text_field :start_date, class: 'form-control'
+          div class="input-group date datetimepicker" 
+            = f.text_field :start_date, data: { :date_format => 'YYYY/MM/DD hh:mm' }, class: 'form-control', placeholder: 'YYYY/MM/DD hh:mm'
             span class="input-group-addon"
                 span class="glyphicon glyphicon-calendar"
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :end_date
+          div class="input-group date datetimepicker" 
+            = f.text_field :end_date, data: { :date_format => 'YYYY/MM/DD hh:mm' }, class: 'form-control', placeholder: 'YYYY/MM/DD hh:mm'
+            span class="input-group-addon"
+                span class="glyphicon glyphicon-calendar"
+
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :absence_limit, "Answer Expiration"
+          div class="input-group date datetimepicker" 
+            = f.text_field :absence_limit, data: { :date_format => 'YYYY/MM/DD hh:mm' }, class: 'form-control', placeholder: 'YYYY/MM/DD hh:mm'
+            span class="input-group-addon"
+                span class="glyphicon glyphicon-calendar"  
+  
+  
   .actions = f.submit

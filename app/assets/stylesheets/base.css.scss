@@ -9,7 +9,7 @@ html,body {
 .container-fluid, .row{
 	height: 100%;
 }
-.left_menu {	
+.left_menu {
 	background-color: $menuBackColor;
 }
 .main {
@@ -35,7 +35,6 @@ table {
 }
 table.table-result {
 	width: 80%;
-	height: inherit;
 	thead {
 		background-color: $tableColor;
 	}
@@ -60,5 +59,3 @@ dl {
 		}
 	}
 }
-
-

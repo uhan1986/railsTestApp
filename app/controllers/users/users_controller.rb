@@ -4,7 +4,11 @@ class Users::UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if user_signed_in?
+      @users = User.where(group_id: current_user.group_id)
+                  .order(id: :asc)
+                  .limit(16)
+    end
   end
 
   # GET /users/1
@@ -30,17 +34,23 @@ class Users::UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    # if user_signed_in? && current_user.is_member_editable?
+    #   @user = User.new(user_params)
+    #   @user.group_id = current_user.group_id
+    #
+    #   respond_to do |format|
+    #     if @user.save
+    #       format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #       format.json { render :show, status: :created, location: @user }
+    #     else
+    #       format.html { render :new }
+    #       format.json { render json: @user.errors, status: :unprocessable_entity }
+    #     end
+    #   end
+    # else
+      render 'new', error: "you have no permission to create or edit member"
+    # end
   end
 
   # PATCH/PUT /users/1
