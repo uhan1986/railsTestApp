@@ -1,12 +1,10 @@
 div
   h1 Listing groups
 
-  table class=["table", "table-hover", "table-striped", "table-result"]
+  table class="table table-hover table-striped table-result"
     thead
       tr
-        th Group account
         th Group name
-        th Hashed password
         th Description
         th Deleted
         th Suspended
@@ -15,9 +13,7 @@ div
     tbody
       - @groups.each do |group|
         tr
-          td = group.group_account
           td = group.group_name
-          td = group.hashed_password
           td = group.description
           td = group.deleted
           td = group.suspended

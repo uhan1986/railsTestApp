@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Users::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    p @user
+  end
+
+  def mine
+    @user = current_user
+    render 'users/users/show'
   end
 
   # GET /users/new
@@ -76,7 +80,7 @@ class UsersController < ApplicationController
                 :account,
                 :name,
                 :email,
-                :permit_level,
+                :permission,
                 :group_id,)
     end
 end

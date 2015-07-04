@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if user_signed_in?
+      @events = Event.where(group_id: current_user.group_id)
+                  .order(start_date: :desc)
+                  .limit(16)
+    end
   end
 
   # GET /events/1

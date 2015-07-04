@@ -18,12 +18,9 @@ permit = 0
 		c = Group.create!(
 			group_account: g_acc,
 			group_name: name,
-			email: email,
-			hashed_password: row_pass,
 			description: description,
 			deleted: del,
 			suspended: susp
 		)
 	end
 end
-

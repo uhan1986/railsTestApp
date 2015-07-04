@@ -5,5 +5,34 @@
       ul
         - @event.errors.full_messages.each do |message|
           li = message
-
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :title
+          br
+          = f.text_field :title, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :summary
+          br
+          = f.text_area :summary, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :location
+          br
+          = f.text_field :location, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :start_date
+          #datetimepicker class="input-group date" 
+            = f.text_field :start_date, class: 'form-control'
+            span class="input-group-addon"
+                span class="glyphicon glyphicon-calendar"
   .actions = f.submit

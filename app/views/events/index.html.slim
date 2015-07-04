@@ -23,5 +23,5 @@ table class=["table", "table-hover", "table-striped", "table-result"]
 
 
 br
-
-= link_to 'New Event', new_event_path
+- if current_user.is_event_editable?
+  = link_to 'New Event', new_event_path

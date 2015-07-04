@@ -2,7 +2,7 @@ accounts = %w(tests development wheeler)
 names = %w(テスト 開発 出席管理)
 email_domains = %w(example.com dev.example.co.jp wheeler.net)
 permit = 0
-row_pass = 'password'
+raw_pass = 'password'
 
 
 
@@ -19,8 +19,9 @@ row_pass = 'password'
 			account: acc,
 			name: name,
 			email: email,
-			hashed_password: row_pass,
-			permit_level: 100,
+			password: raw_pass,
+			password_confirmation: raw_pass,
+			permission: User.permissions["user"],
 			group_id: Random.rand(1..30),
 			deleted: del,
 			suspended: susp
@@ -33,7 +34,7 @@ end
 #      t.string  :name                                  # 名前
 #      t.string  :email, null: false                    # Eメール
 #      t.string  :hashed_password                       # パスワード
-#      t.integer :permit_level, null: false             # 権限レベル
+#      t.integer :permission, null: false             # 権限レベル
 #      t.references :group, null: false                 # 外部キー グループ
 #      t.boolean :deleted, null: false, default: false  # 削除フラグ
 #      t.boolean :suspended, null:false, default: false # 停止フラグ

@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    p params
   end
 
   # GET /groups/1/edit
@@ -24,15 +25,19 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
+    p params
     @group = Group.new(group_params)
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
+        current_user.group_id = @group.id
+        if current_user.save
+          format.html { redirect_to @group, notice: 'Group was successfully created.' }
+          # format.json { render :show, status: :created, location: @group }
+        end
       else
         format.html { render :new }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        # format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +47,14 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
+        current_user.group_id = @group.id
+        if current_user.save(validate: false)
+          format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+          # format.json { render :show, status: :ok, location: @group }
+        end
       else
         format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        # format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end

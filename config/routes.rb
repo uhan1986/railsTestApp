@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+  devise_for :admins
+  root 'top#index'
 
-  get 'home/show'
+  get 'home' => 'home#index'
 
-  root to: "home#index"
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+  }
 
   resources :groups
 
-  resources :users
+  resources :users, :controller => 'users/users', :via => 'get'
+  get 'user/mine' => 'users/users#mine'
+
 
   resources :events
 

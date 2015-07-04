@@ -13,4 +13,11 @@ html
         div class=["col-md-2", "menu", "left_menu"]
           == render 'shared/side_menu'
         div class=["col-md-10", "menu", "main"]
+          div [align="right"]
+            - if user_signed_in?
+              = request.session_options[:id]
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+
           == yield
+          - if user_signed_in? && !current_user.belongs_to_group?
+            == render 'shared/announce_to_group_setting'
