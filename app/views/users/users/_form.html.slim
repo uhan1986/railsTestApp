@@ -5,24 +5,32 @@
       ul
         - @user.errors.full_messages.each do |message|
           li = message
-  .field
-    = f.label :account
-    br
-    =f.text_field :account
-  .field
-    = f.label :name
-    br
-    =f.text_field :name
-  .field
-    = f.label :email
-    br
-    =f.text_field :email
-  .field
-    = f.label :permission
-    br
-    =f.text_field :permission
-  .field
-    = f.label :group_id
-    br
-    =f.text_field :group_id
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :account
+          br
+          =f.text_field :account, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :name
+          br
+          =f.text_field :name, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :email
+          br
+          =f.text_field :email, class: 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        .field
+          = f.label :permission
+          br
+          =f.select :permission, User.permissions, {}, class: 'form-control'
   .actions = f.submit

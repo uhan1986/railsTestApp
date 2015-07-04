@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
 		self.is_group_admin? || self.is_group_vice_admin?
 	end
 
+	def is_member_editable?
+		self.is_group_admin? || self.is_group_vice_admin?
+	end
+
 	def is_group_admin?
 		self.belongs_to_group? && self.admin?
 	end
