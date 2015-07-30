@@ -2,7 +2,7 @@ h1 Editing group
 
 == render 'form'
 
-= link_to 'Show', @group
-'|
-= link_to 'Back', groups_path
-
+- if user_signed_in?
+  = link_to 'Back', group_mine_path
+- else admin_signed_in?
+  = link_to 'Back', groups_path

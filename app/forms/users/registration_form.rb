@@ -16,7 +16,6 @@ class Users::RegistrationForm
 
   def assign_attributes(params={})
     @params = params
-    binding.pry
     group.assign_attributes(group_params)
     user.assign_attributes(user_params)
   end

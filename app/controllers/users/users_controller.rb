@@ -34,23 +34,27 @@ class Users::UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    binding.pry
+    if user_signed_in? && current_user.is_member_editable?
+      @user = User.new(user_params)
+      @user.group_id = current_user.group_id
 
-    # if user_signed_in? && current_user.is_member_editable?
-    #   @user = User.new(user_params)
-    #   @user.group_id = current_user.group_id
-    #
-    #   respond_to do |format|
-    #     if @user.save
-    #       format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #       format.json { render :show, status: :created, location: @user }
-    #     else
-    #       format.html { render :new }
-    #       format.json { render json: @user.errors, status: :unprocessable_entity }
-    #     end
-    #   end
-    # else
-      render 'new', error: "you have no permission to create or edit member"
-    # end
+      binding.pry
+      respond_to do |format|
+        if @user.save
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render :show, status: :created, location: @user }
+          binding.pry
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+          binding.pry
+        end
+      end
+    else
+      binding.pry
+      redirect_to :root
+    end
   end
 
   # PATCH/PUT /users/1

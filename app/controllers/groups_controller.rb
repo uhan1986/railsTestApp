@@ -15,7 +15,14 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    p params
+  end
+
+  # GET /groups/mine
+  def mine
+    if !current_user.nil?
+      @group = Group.find(current_user.id)
+      render 'groups/show'
+    end
   end
 
   # GET /groups/1/edit

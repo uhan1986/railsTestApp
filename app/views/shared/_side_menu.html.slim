@@ -5,6 +5,8 @@ ul class="nav nav-pills nav-stacked"
     = link_to 'Profile', user_mine_path
   li role="presentation"
     = link_to 'Events', events_path
-  - if current_user.is_member_editable?
+  li role="presentation"
+    = link_to 'Groups', group_mine_path
+  - if !current_user.nil? && current_user.is_member_editable?
     li role="presentation"
       = link_to 'Members', users_path

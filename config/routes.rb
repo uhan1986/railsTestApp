@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   }
 
   resources :groups
+  get 'group' => 'groups#mine', as: :group_mine
 
   resources :users, :controller => 'users/users', :via => 'get'
-  get 'user/mine' => 'users/users#mine'
+  get 'user' => 'users/users#mine', as: :user_mine
 
 
   resources :events
