@@ -34,7 +34,6 @@ class Users::UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    binding.pry
     if user_signed_in? && current_user.is_member_editable?
       @user = User.new(user_params)
       @user.group_id = current_user.group_id

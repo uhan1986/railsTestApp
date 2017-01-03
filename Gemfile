@@ -13,7 +13,7 @@ gem 'sass-rails', '>= 3.2'
 #gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass', ' ~> 3.3.4'
 
-#use font-awesome
+# use font-awesome
 gem 'font-awesome-sass'
 
 # use datetimepicker

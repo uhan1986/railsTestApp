@@ -9,7 +9,7 @@ p.alert
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :login_account, 'Account or Email'
+    = f.label :login_account
     br
     = f.text_field :login_account, autofocus: true
 
@@ -24,6 +24,6 @@ p.alert
       = f.label :remember_me
   
   .actions
-    = f.submit "Log in"
+    = f.submit(t 'login.submit_login')
 
 == render "devise/shared/links"
